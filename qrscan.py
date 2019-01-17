@@ -10,8 +10,12 @@ import getopt
 import os
 import sys
 
-from pyzbar.pyzbar import decode
-from PIL import Image
+try:
+    from pyzbar.pyzbar import decode
+    from PIL import Image
+except ImportError as import_error:
+    print("(%s)" % import_error)
+    exit("Modules are missing. Run this: pip install -r requirements.txt")
 
 def splash_text():
         print('''
